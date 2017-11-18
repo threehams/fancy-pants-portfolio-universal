@@ -1,0 +1,17 @@
+.tile-list {
+  display: grid;
+  grid-gap: 0.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  padding: 0.25rem;
+}
+
+.tile {
+  color: inherit;
+}
+
+.tile-footer {
+  overflow: hidden;
+  padding: 0.5rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

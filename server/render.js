@@ -3,42 +3,45 @@ import ReactDOM from "react-dom/server";
 import { flushChunkNames } from "react-universal-component/server";
 import flushChunks from "webpack-flush-chunks";
 import { StaticRouter } from "react-router";
+import Helmet from "react-helmet";
+import database from "../src/database";
 
 import App from "../src/components/App";
 
 export default ({ clientStats }) => (req, res) => {
+  flushChunkNames();
   const app = ReactDOM.renderToString(
     <StaticRouter location={req.url} context={{}}>
-      <App />
+      <App database={database} />
     </StaticRouter>,
   );
   const chunkNames = flushChunkNames();
+  const helmet = Helmet.renderStatic();
 
-  const { js, styles, cssHash, scripts, stylesheets } = flushChunks(
-    clientStats,
-    {
-      chunkNames,
-      before: ["manifest"],
-    },
-  );
-
-  console.log("PATH", req.path);
-  console.log("DYNAMIC CHUNK NAMES RENDERED", chunkNames);
-  console.log("SCRIPTS SERVED", scripts);
-  console.log("STYLESHEETS SERVED", stylesheets);
+  const { js, styles, cssHash } = flushChunks(clientStats, {
+    chunkNames,
+    before: ["manifest"],
+  });
 
   res.send(
     `<!doctype html>
       <html>
         <head>
           <meta charset="utf-8">
-          <title>react-universal-component-boilerplate</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <title>Vanessa M. Zuloaga | Portfolio</title>
           ${styles}
+          ${helmet.title}
+          ${helmet.meta}
+          ${helmet.link}
         </head>
         <body>
           <div id="root">${app}</div>
           ${cssHash}
           ${js}
+          <script type="text/javascript">
+            window.__DATABASE__ = ${JSON.stringify(database)};
+          </script>
         </body>
       </html>`,
   );

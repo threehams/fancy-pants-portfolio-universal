@@ -4,7 +4,7 @@ const webpack = require("webpack");
 const res = p => path.resolve(__dirname, p);
 
 const entry = res("../server/render.js");
-const output = res("../buildServer");
+const output = res("../build/server");
 
 module.exports = {
   name: "server",
@@ -31,7 +31,8 @@ module.exports = {
             loader: "css-loader/locals",
             options: {
               modules: true,
-              localIdentName: "[name]__[local]--[hash:base64:5]",
+              camelCase: true,
+              localIdentName: "[hash:base64:5]",
             },
           },
         ],

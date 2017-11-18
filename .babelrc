@@ -1,6 +1,21 @@
 {
   "presets": ["es2015", "react", "stage-2"],
-  "plugins": ["universal-import"],
+  "plugins": [
+    "universal-import",
+    [
+      "transform-imports",
+      {
+        "react-router": {
+          "transform": "react-router/${member}",
+          "preventFullImport": true
+        },
+        "react-router-dom": {
+          "transform": "react-router-dom/${member}",
+          "preventFullImport": true
+        }
+      }
+    ]
+  ],
   "env": {
     "development": {
       "plugins": ["react-hot-loader/babel"]

@@ -10,7 +10,7 @@ module.exports = {
   output: {
     filename: "[name].[chunkhash].js",
     chunkFilename: "[name].[chunkhash].js",
-    path: path.resolve(__dirname, "../buildClient"),
+    path: path.resolve(__dirname, "..", "build", "client"),
     publicPath: "/static/",
   },
   module: {
@@ -28,7 +28,8 @@ module.exports = {
               loader: "css-loader",
               options: {
                 modules: true,
-                localIdentName: "[name]__[local]--[hash:base64:5]",
+                camelCase: true,
+                localIdentName: "[hash:base64:5]",
               },
             },
           ],
@@ -66,6 +67,6 @@ module.exports = {
       },
       sourceMap: true,
     }),
-    new webpack.HashedModuleIdsPlugin(), // not needed for strategy to work (just good practice)
+    // new webpack.HashedModuleIdsPlugin(), // not needed for strategy to work (just good practice)
   ],
 };

@@ -1,13 +1,12 @@
 const fs = require("fs");
 const path = require("path");
 const webpack = require("webpack");
-const WriteFilePlugin = require("write-file-webpack-plugin");
 
 const res = p => path.resolve(__dirname, p);
 
 const nodeModules = res("../node_modules");
 const entry = res("../server/render.js");
-const output = res("../buildServer");
+const output = res("../build/server");
 
 // if you're specifying externals to leave unbundled, you need to tell Webpack
 // to still bundle `react-universal-component`, `webpack-flush-chunks` and
@@ -50,6 +49,7 @@ module.exports = {
             loader: "css-loader/locals",
             options: {
               modules: true,
+              camelCase: true,
               localIdentName: "[name]__[local]--[hash:base64:5]",
             },
           },
@@ -61,7 +61,6 @@ module.exports = {
     extensions: [".js", ".css"],
   },
   plugins: [
-    new WriteFilePlugin(),
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1,
     }),

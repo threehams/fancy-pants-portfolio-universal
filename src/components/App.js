@@ -1,74 +1,46 @@
 import React from "react";
 import universal from "react-universal-component";
-import styles from "../css/App";
-import UsageHero from "./UsageHero";
-import { Route, withRouter } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
+import NotFound from "./NotFound";
 
-const UniversalComponent = universal(props => import(`./${props.name}`));
+import styles from "../css/App.css";
 
-const loadComponent = name => props => (
-  <UniversalComponent {...props} name={name} />
-);
-const routes = [
-  "Foo",
-  "Bar",
-  "Baz",
-  "Rudy",
-  "Example",
-  "ReduxFirstRouter",
-  "Universal",
-  "FaceySpacey",
-];
+const UniversalComponent = universal(props => import(`./${props.page}`), {
+  minDelay: 200,
+});
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      error: false,
-    };
-  }
-
-  render() {
-    const { history, location } = this.props;
-
-    return (
-      <div className={styles.container}>
-        <h1>Hello Reactlandia</h1>
-
-        <UsageHero />
-
-        <Route exact path="/" render={loadComponent("Foo")} />
-        {routes.map(name => (
-          <Route
-            exact
-            key={name}
-            path={`/${name}`}
-            render={loadComponent(name)}
+const App = ({ database }) => {
+  return (
+    <Switch>
+      <Route
+        exact
+        path="/"
+        render={() => (
+          <UniversalComponent
+            page="PictureList"
+            banner={database.banner}
+            pictures={database.pictures}
           />
-        ))}
-
-        <button
-          onClick={() => history.push(nextRoute(routes, location.pathname))}
-        >
-          Change Page
-        </button>
-
-        <p>
-          <span>*why are you looking at this? refresh the page</span>
-          <span>and view the source in Chrome for the real goods</span>
-        </p>
-      </div>
-    );
-  }
-}
-
-const nextRoute = (routes, path) => {
-  if (path === "/") {
-    path = routes[0];
-  }
-  const newIndex = routes.indexOf(path.replace("/", "")) + 1;
-  return routes[newIndex] || routes[0];
+        )}
+      />
+      <Route
+        exact
+        path="/:slug"
+        render={({ match }) => {
+          const picture = database.pictures.find(
+            picture => picture.slug === match.params.slug,
+          );
+          if (picture) {
+            return (
+              <UniversalComponent page="PictureDetail" picture={picture} />
+            );
+          }
+          return <NotFound />;
+        }}
+      />
+      <Route component={NotFound} />
+    </Switch>
+  );
 };
 
-export default withRouter(App);
+export default App;
