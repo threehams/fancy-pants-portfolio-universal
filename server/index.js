@@ -1,6 +1,6 @@
 require("colors");
 const express = require("express");
-const webpack = require("webpack"); // aliased to webpack-universal
+const webpack = require("webpack");
 const noFavicon = require("express-no-favicons");
 const webpackDevMiddleware = require("webpack-dev-middleware");
 const webpackHotMiddleware = require("webpack-hot-middleware");
@@ -33,6 +33,8 @@ if (DEV) {
   const clientCompiler = compiler.compilers[0];
   const options = { publicPath, stats: { colors: true } };
 
+  console.log(path.resolve(__dirname, "..", "assets"));
+  app.use("/assets/", express.static(path.resolve(__dirname, "..", "assets")));
   app.use(webpackDevMiddleware(compiler, options));
   app.use(webpackHotMiddleware(clientCompiler));
   app.use(webpackHotServerMiddleware(compiler));

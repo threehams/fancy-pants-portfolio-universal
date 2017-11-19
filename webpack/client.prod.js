@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const ExtractCssChunks = require("extract-css-chunks-webpack-plugin");
+const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
   name: "client",
@@ -41,6 +42,7 @@ module.exports = {
     alias: {
       react: "preact-compat",
       "react-dom": "preact-compat",
+      "preact-compat": "preact-compat/dist/preact-compat",
     },
     extensions: [".js", ".css"],
   },
@@ -57,20 +59,6 @@ module.exports = {
         NODE_ENV: JSON.stringify("production"),
       },
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        screw_ie8: true,
-        warnings: false,
-      },
-      mangle: {
-        screw_ie8: true,
-      },
-      output: {
-        screw_ie8: true,
-        comments: false,
-      },
-      sourceMap: true,
-    }),
-    // new webpack.HashedModuleIdsPlugin(), // not needed for strategy to work (just good practice)
+    new UglifyJSPlugin(),
   ],
 };

@@ -2,6 +2,7 @@ import React from "react";
 import Helmet from "react-helmet";
 import { Link } from "react-router-dom";
 
+import Img from "./Img";
 import styles from "../css/PictureList.css";
 
 const PictureList = ({ banner, pictures }) => {
@@ -22,7 +23,7 @@ const PictureList = ({ banner, pictures }) => {
             to={`/${picture.slug}`}
             className={styles.tile}
           >
-            <img src={picture.url} />
+            <Img width={400} height={400} src={picture.thumbUrl} />
             <div
               className={styles.tileFooter}
               style={{

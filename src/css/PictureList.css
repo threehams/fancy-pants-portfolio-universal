@@ -1,12 +1,21 @@
 .tile-list {
   display: grid;
-  grid-gap: 0.25rem;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-gap: 0.125rem;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   padding: 0.25rem;
 }
 
+@media (min-width: 768px) {
+  .tile-list {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
 .tile {
+  display: inline-block;
   color: inherit;
+  margin: 0.125rem;
+  /* width: 160px; */
 }
 
 .tile-footer {

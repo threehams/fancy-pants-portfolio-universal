@@ -21,7 +21,7 @@ const database = {
   pictures: [
     {
       backgroundColor: "#332417",
-      filename: "alone-in-the-forest.jpg",
+      filename: "alone-in-the-forest",
       id: "1",
       width: 3300,
       height: 4200,
@@ -34,7 +34,7 @@ const database = {
     },
     {
       backgroundColor: "#3E2836",
-      filename: "animal-spirit-1.jpg",
+      filename: "animal-spirit-1",
       height: 4050,
       id: "2",
       slug: "animal-spirit-1",
@@ -47,7 +47,7 @@ const database = {
     },
     {
       backgroundColor: "#CCAC9A",
-      filename: "ashen.jpg",
+      filename: "ashen",
       height: 4428,
       id: "3",
       slug: "ashen",
@@ -60,7 +60,7 @@ const database = {
     },
     {
       backgroundColor: "#CAE8BE",
-      filename: "four-elements.jpg",
+      filename: "four-elements",
       height: 1905,
       id: "4",
       slug: "four-elements",
@@ -73,7 +73,7 @@ const database = {
     },
     {
       backgroundColor: "#BA5D2D",
-      filename: "golden.jpg",
+      filename: "golden",
       height: 3161,
       id: "16",
       slug: "golden",
@@ -86,7 +86,7 @@ const database = {
     },
     {
       backgroundColor: "#2284E0",
-      filename: "jacking-on.jpg",
+      filename: "jacking-on",
       height: 3304,
       id: "5",
       slug: "jacking-on",
@@ -99,7 +99,7 @@ const database = {
     },
     {
       backgroundColor: "#73D6FA",
-      filename: "pardonne-moi.jpg",
+      filename: "pardonne-moi",
       height: 2100,
       id: "6",
       slug: "pardonne-moi",
@@ -112,7 +112,7 @@ const database = {
     },
     {
       backgroundColor: "#0C0F17",
-      filename: "plavalaguna.jpg",
+      filename: "plavalaguna",
       height: 864,
       id: "7",
       slug: "plavalaguna",
@@ -125,7 +125,7 @@ const database = {
     },
     {
       backgroundColor: "#7A4D3F",
-      filename: "seven-deadly-nights-out.jpg",
+      filename: "seven-deadly-nights-out",
       height: 2705,
       id: "8",
       slug: "seven-deadly-nights-out",
@@ -138,7 +138,7 @@ const database = {
     },
     {
       backgroundColor: "#DEE2F1",
-      filename: "snow-queen.jpg",
+      filename: "snow-queen",
       height: 5100,
       id: "9",
       slug: "snow-queen",
@@ -151,7 +151,7 @@ const database = {
     },
     {
       backgroundColor: "#666576",
-      filename: "spellcaster-1.jpg",
+      filename: "spellcaster-1",
       height: 4200,
       id: "10",
       slug: "spellcaster-1",
@@ -164,7 +164,7 @@ const database = {
     },
     {
       backgroundColor: "#D7C8C5",
-      filename: "spellcaster-2.jpg",
+      filename: "spellcaster-2",
       height: 3300,
       id: "11",
       slug: "spellcaster-2",
@@ -177,7 +177,7 @@ const database = {
     },
     {
       backgroundColor: "#3E3126",
-      filename: "the-cage.jpg",
+      filename: "the-cage",
       height: 4200,
       id: "12",
       slug: "the-cage",
@@ -190,7 +190,7 @@ const database = {
     },
     {
       backgroundColor: "#C2A374",
-      filename: "violet.jpg",
+      filename: "violet",
       height: 3600,
       id: "13",
       slug: "violet",
@@ -203,7 +203,7 @@ const database = {
     },
     {
       backgroundColor: "#AB6545",
-      filename: "wasteland-weekend-2012.jpg",
+      filename: "wasteland-weekend-2012",
       height: 6000,
       id: "14",
       slug: "wasteland-weekend-2012",
@@ -216,7 +216,7 @@ const database = {
     },
     {
       backgroundColor: "#F2E7D7",
-      filename: "wasteland-weekend-2014.jpg",
+      filename: "wasteland-weekend-2014",
       height: 1440,
       id: "15",
       slug: "wasteland-weekend-2014",

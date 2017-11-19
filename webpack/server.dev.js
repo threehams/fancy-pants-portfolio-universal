@@ -14,7 +14,12 @@ const output = res("../build/server");
 // within Webpack and can properly make connections to client modules:
 const externals = fs
   .readdirSync(nodeModules)
-  .filter(x => !/\.bin|react-universal-component|webpack-flush-chunks/.test(x))
+  .filter(
+    x =>
+      !/\.bin|react-universal-component|webpack-flush-chunk|react-helmet|react-side-effect/.test(
+        x,
+      ),
+  )
   .reduce((externals, mod) => {
     externals[mod] = `commonjs ${mod}`;
     return externals;
@@ -61,6 +66,7 @@ module.exports = {
     alias: {
       react: "preact-compat",
       "react-dom": "preact-compat",
+      "preact-compat": "preact-compat/dist/preact-compat",
     },
     extensions: [".js", ".css"],
   },
