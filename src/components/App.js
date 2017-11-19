@@ -3,7 +3,7 @@ import universal from "react-universal-component";
 import { Route, Switch } from "react-router-dom";
 import NotFound from "./NotFound";
 
-import styles from "../css/App.css";
+import "../css/App.css";
 
 const UniversalComponent = universal(props => import(`./${props.page}`), {
   minDelay: 200,

@@ -58,6 +58,10 @@ module.exports = {
     ],
   },
   resolve: {
+    alias: {
+      react: "preact-compat",
+      "react-dom": "preact-compat",
+    },
     extensions: [".js", ".css"],
   },
   plugins: [

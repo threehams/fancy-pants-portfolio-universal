@@ -9,6 +9,10 @@ const PictureList = ({ banner, pictures }) => {
     <div>
       <Helmet>
         <title>Vanessa M. Zuloaga | Portfolio</title>
+        <meta
+          name="description"
+          content="Portfolio for Vanessa M. Zuloaga. Artist, illustrator, designer located in Los Angeles, CA."
+        />
       </Helmet>
 
       <div className={styles.tileList}>

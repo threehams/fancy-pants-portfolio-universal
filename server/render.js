@@ -25,24 +25,23 @@ export default ({ clientStats }) => (req, res) => {
 
   res.send(
     `<!doctype html>
-      <html>
-        <head>
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1">
-          <title>Vanessa M. Zuloaga | Portfolio</title>
-          ${styles}
-          ${helmet.title}
-          ${helmet.meta}
-          ${helmet.link}
-        </head>
-        <body>
-          <div id="root">${app}</div>
-          ${cssHash}
-          ${js}
-          <script type="text/javascript">
-            window.__DATABASE__ = ${JSON.stringify(database)};
-          </script>
-        </body>
-      </html>`,
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        ${styles}
+        ${helmet.title}
+        ${helmet.meta}
+        ${helmet.link}
+      </head>
+      <body>
+        <div id="root">${app}</div>
+        ${cssHash}
+        ${js}
+        <script type="text/javascript">
+          window.__DATABASE__ = ${JSON.stringify(database)};
+        </script>
+      </body>
+    </html>`,
   );
 };
