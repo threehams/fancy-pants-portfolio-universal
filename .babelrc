@@ -1,17 +1,5 @@
 {
-  "presets": [
-    [
-      "env",
-      {
-        "modules": false,
-        "targets": {
-          "browsers": [">0.5% in US"]
-        }
-      }
-    ],
-    "react",
-    "stage-2"
-  ],
+  "presets": [["env", { "modules": false }], "react", "stage-2"],
   "plugins": [
     "universal-import",
     [
@@ -23,6 +11,10 @@
         },
         "react-router-dom": {
           "transform": "react-router-dom/${member}",
+          "preventFullImport": true
+        },
+        "date-fns": {
+          "transform": "date-fns/${member}",
           "preventFullImport": true
         }
       }

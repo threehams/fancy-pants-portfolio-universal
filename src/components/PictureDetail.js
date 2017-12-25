@@ -2,6 +2,7 @@ import React from "react";
 import Helmet from "react-helmet";
 
 import styles from "../css/PictureDetail.css";
+import { format, parse } from "date-fns";
 
 const PictureDetail = ({ picture }) => {
   const aspectRatio = picture.height / picture.width;
@@ -38,7 +39,7 @@ const PictureDetail = ({ picture }) => {
         <div className={styles.wrappable}>
           <h1 className={styles.title}>{picture.title}</h1>
           <p className={styles.completionDate}>
-            Completed: {new Date(picture.completionDate)}
+            Completed: {format(parse(picture.completionDate), "MM/DD/YYYY")}
           </p>
           <p className={styles.description}>{picture.description}</p>
         </div>

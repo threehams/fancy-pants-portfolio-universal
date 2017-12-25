@@ -49,9 +49,10 @@ module.exports = {
   plugins: [
     new ExtractCssChunks(),
     new webpack.optimize.CommonsChunkPlugin({
-      names: ["manifest"], // needed to put webpack bootstrap code before chunks
+      children: true,
+      deepChildren: true,
+      names: ["manifest", "main"], // needed to put webpack bootstrap code before chunks
       filename: "[name].[chunkhash].js",
-      minChunks: Infinity,
     }),
 
     new webpack.DefinePlugin({
