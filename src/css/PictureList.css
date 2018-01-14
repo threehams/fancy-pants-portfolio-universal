@@ -1,26 +1,39 @@
 .tile-list {
-  display: grid;
-  grid-gap: 0.125rem;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  padding: 0.25rem;
+  columns: 1;
+  column-gap: 0;
+}
+
+@media (min-width: 576px) {
+  .tile-list {
+    columns: 2;
+  }
 }
 
 @media (min-width: 768px) {
   .tile-list {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    columns: 3;
+  }
+}
+
+@media (min-width: 1200px) {
+  .tile-list {
+    columns: 4;
+  }
+}
+
+@media (min-width: 1600px) {
+  .tile-list {
+    columns: 5;
   }
 }
 
 .tile {
-  display: inline-block;
-  color: inherit;
-  margin: 0.125rem;
+  break-inside: avoid;
+  display: block;
+  padding: 15px;
   /* width: 160px; */
 }
 
-.tile-footer {
-  overflow: hidden;
-  padding: 0.5rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.tile-image {
+  break-inside: avoid;
 }

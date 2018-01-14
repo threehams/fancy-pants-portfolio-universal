@@ -1,10 +1,11 @@
 import React from "react";
 import Helmet from "react-helmet";
+import { format, parse } from "date-fns";
+import { Link } from "react-router-dom";
 
 import styles from "../css/PictureDetail.css";
-import { format, parse } from "date-fns";
 
-const PictureDetail = ({ picture }) => {
+const PictureDetail = ({ picture, next, prev }) => {
   const aspectRatio = picture.height / picture.width;
   const height = `${100 * aspectRatio}vh`;
   const maxHeight = "90vh";
@@ -35,6 +36,19 @@ const PictureDetail = ({ picture }) => {
           alt={picture.title}
         />
       </div>
+      <Link to="/" className={styles.close}>
+        <div className={styles.closeIcon} />
+      </Link>
+      {prev && (
+        <Link to={prev} className={styles.arrowLeft}>
+          <div className={styles.angleLeft} />
+        </Link>
+      )}
+      {next && (
+        <Link to={next} className={styles.arrowRight}>
+          <div className={styles.angleRight} />
+        </Link>
+      )}
       <div className={styles.container}>
         <div className={styles.wrappable}>
           <h1 className={styles.title}>{picture.title}</h1>

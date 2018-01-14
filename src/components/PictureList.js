@@ -23,32 +23,17 @@ const PictureList = ({ banner, pictures }) => {
             to={`/${picture.slug}`}
             className={styles.tile}
           >
-            <Img width={400} height={400} src={picture.thumbUrl} />
-            <div
-              className={styles.tileFooter}
-              style={{
-                backgroundColor: picture.backgroundColor,
-                color: textColor(picture.backgroundColor),
-              }}
-            >
-              {picture.title}
-            </div>
+            <Img
+              className={styles.tileImage}
+              width={picture.width}
+              height={picture.height}
+              src={picture.images[0].url}
+            />
           </Link>
         ))}
       </div>
     </div>
   );
-};
-
-const textColor = backgroundColor => {
-  const r = parseInt(backgroundColor.slice(1, 3), 16);
-  const g = parseInt(backgroundColor.slice(3, 5), 16);
-  const b = parseInt(backgroundColor.slice(5, 7), 16);
-
-  if ((r * 299 + g * 587 + b * 114) / 1000 < 125) {
-    return "white";
-  }
-  return "black";
 };
 
 export default PictureList;

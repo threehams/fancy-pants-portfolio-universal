@@ -36,11 +36,20 @@ export default class App extends Component {
           exact
           path="/:slug"
           render={({ match }) => {
-            const picture = database.pictures.find(
+            const pictureIndex = database.pictures.findIndex(
               picture => picture.slug === match.params.slug,
             );
-            if (picture) {
-              return <PictureDetail picture={picture} />;
+            if (pictureIndex !== -1) {
+              const picture = database.pictures[pictureIndex];
+              const prev =
+                database.pictures[pictureIndex - 1] &&
+                database.pictures[pictureIndex - 1].slug;
+              const next =
+                database.pictures[pictureIndex + 1] &&
+                database.pictures[pictureIndex + 1].slug;
+              return (
+                <PictureDetail picture={picture} prev={prev} next={next} />
+              );
             }
             return <NotFound />;
           }}

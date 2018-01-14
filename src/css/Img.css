@@ -1,10 +1,17 @@
 .container {
+  page-break-inside: avoid; /* For Firefox. */
+  -webkit-column-break-inside: avoid; /* For Chrome & friends. */
+  break-inside: avoid; /* For standard browsers like IE. :-) */
+
   display: block;
   position: relative;
   width: 100%;
 }
 
 .image {
+  page-break-inside: avoid; /* For Firefox. */
+  -webkit-column-break-inside: avoid; /* For Chrome & friends. */
+  break-inside: avoid; /* For standard browsers like IE. :-) */
   width: 100%;
   position: absolute;
   top: 0;
